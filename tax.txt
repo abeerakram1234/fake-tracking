@@ -1,0 +1,18 @@
+from datetime import datetime, timedelta
+
+def get_fake_tracking(tracking_id):
+    today = datetime.now()
+    in_transit_date = today.strftime("%Y-%m-%d")
+    delivery_date = (today + timedelta(days=3)).strftime("%Y-%m-%d")
+
+    return {
+        "tracking_id": tracking_id,
+        "status": "In Transit",
+        "in_transit_date": in_transit_date,
+        "expected_delivery": delivery_date
+    }
+
+# Example usage:
+tracking_id = "MP123456789PK"
+info = get_fake_tracking(tracking_id)
+print(info)
